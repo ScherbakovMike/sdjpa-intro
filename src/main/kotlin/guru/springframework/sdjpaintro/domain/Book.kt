@@ -7,12 +7,8 @@ import lombok.EqualsAndHashCode
 
 @Entity
 @EqualsAndHashCode(of = ["id"])
-class Book {
+class Book(val title: String, val isbn: String, val publisher: String) {
     @Id
     @GeneratedValue
     var id: Long = 0
-
-    var title: String = ""
-    var isbn: String = ""
-    var publisher: String = ""
 }
