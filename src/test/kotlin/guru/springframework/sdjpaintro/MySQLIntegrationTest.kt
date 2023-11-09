@@ -1,18 +1,19 @@
 package guru.springframework.sdjpaintro
 
-import guru.springframework.sdjpaintro.domain.Book
 import guru.springframework.sdjpaintro.repositories.BookRepository
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.context.annotation.ComponentScan
+import org.springframework.test.context.ActiveProfiles
 
+@ActiveProfiles("local")
 @DataJpaTest
 @ComponentScan(basePackages = ["guru.springframework.sdjpaintro.bootstrap"])
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class SpringBootJpaTestSlice {
+class MySQLIntegrationTest {
 
     @Autowired
     private lateinit var bookRepository: BookRepository
@@ -20,8 +21,6 @@ class SpringBootJpaTestSlice {
     @Test
     fun testJpaTestSlice() {
         val countBefore = bookRepository.count()
-        bookRepository.save(Book("My Book", "1235555", "Self"))
-        val countAfter = bookRepository.count()
-        assertThat(countBefore).isLessThan(countAfter)
+        Assertions.assertThat(countBefore).isEqualTo(2)
     }
 }
