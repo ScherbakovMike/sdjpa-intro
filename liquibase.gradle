@@ -1,0 +1,25 @@
+apply plugin: 'org.liquibase.gradle'
+
+diff.dependsOn assemble
+
+liquibase {
+    activities {
+        main {
+            //changelogFile "changelog.sql"
+            url "jdbc:mysql://127.0.0.1:3306/bookdb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
+            username "bookadmin"
+            password "password"
+//            For groovy file generation
+//            changeLogFile 'src/main/resources/db/changelog/test-changelog.groovy'
+//            For yaml file generation
+//            changeLogFile 'src/main/resources/db/changelog/test-changelog.yml'
+//            For xml file generation
+//            changeLogFile 'src/main/resources/db/changelog/test-changelog.xml'
+//            driver 'com.mysql.jdbc.Driver'
+            logLevel 'debug'
+//            referenceDriver "liquibase.ext.hibernate.database.connection.HibernateDriver"
+//            referenceUrl 'hibernate:spring:com.optum.clm.event.gateway.api.entity?dialect=org.hibernate.dialect.MySQLDialect'
+            changeLogFile 'changelog.mysql.xml'
+        }
+    }
+}

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component
 class DataInitializer(private val bookRepository: BookRepository) : CommandLineRunner {
 
     override fun run(vararg args: String?) {
-        //this.bookRepository.deleteAll()
         this.bookRepository.save(Book("Domain Driven Design", "123", "RandomHouse"))
         this.bookRepository.save(Book("Spring In Action", "234234", "O'Reilly"))
         bookRepository.findAll().forEach { book: Book ->
