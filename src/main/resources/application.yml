@@ -1,6 +1,6 @@
 spring:
-  liquibase:
-    change-log: db/changelog/changelog-master.mysql.xml
+#  liquibase:
+#    change-log: db/changelog/changelog-master.mysql.xml
 
   jpa:
     #show-sql: true

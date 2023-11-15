@@ -1,8 +1,8 @@
 spring:
-  liquibase:
-    user: bookadmin
-    password: password
-    change-log: db/changelog/changelog-master.mysql.xml
+#  liquibase:
+#    user: bookadmin
+#    password: password
+#    change-log: db/changelog/changelog-master.mysql.xml
 
   datasource:
     username: bookuser
@@ -15,3 +15,7 @@ spring:
   sql:
     init:
       mode: always
+
+  flyway:
+    user: bookadmin
+    password: password
