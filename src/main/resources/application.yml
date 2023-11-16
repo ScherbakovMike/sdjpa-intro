@@ -1,7 +1,6 @@
 spring:
 #  liquibase:
 #    change-log: db/changelog/changelog-master.mysql.xml
-
   jpa:
     #show-sql: true
     properties:
@@ -22,6 +21,9 @@ spring:
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE
     username: sa
     password: password
+
+  flyway:
+    locations: classpath:db/migration/common, classpath:db/migration/{vendor}
 
 logging:
   level:

@@ -1,5 +1,7 @@
-# drop table if exists book;
-# drop table if exists book_seq;
+drop table if exists book;
+drop table if exists book_seq;
+drop table if exists author;
+drop table if exists author_seq;
 
 create table book (
                       id bigint not null,
@@ -14,4 +16,4 @@ create table book_seq (
     next_val bigint
 ) engine=InnoDB;
 
-insert book_seq values (1);
+insert into book_seq values (1);

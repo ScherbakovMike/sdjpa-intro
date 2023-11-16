@@ -35,7 +35,7 @@ dependencies {
 	implementation 'mysql:mysql-connector-java:8.0.28'
 //	implementation 'org.liquibase:liquibase-core'
 	implementation 'org.flywaydb:flyway-core'
-	compileOnly "org.flywaydb:flyway-mysql"
+	implementation "org.flywaydb:flyway-mysql"
 
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
